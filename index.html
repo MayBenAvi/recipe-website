@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Recipe Suggester</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>AI Recipe Suggester</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>What’s in your kitchen?</h2>
+            <form id="recipe-form">
+                <label for="allergies">Allergies (comma-separated):</label>
+                <input type="text" id="allergies" placeholder="e.g., nuts, dairy">
+
+                <label for="mood">Mood:</label>
+                <select id="mood">
+                    <option value="meal">Meal</option>
+                    <option value="snack">Snack</option>
+                    <option value="breakfast">Breakfast</option>
+                </select>
+
+                <label for="leftovers">Leftovers (comma-separated):</label>
+                <input type="text" id="leftovers" placeholder="e.g., bread, milk, eggs">
+
+                <button type="submit">Get Recipe</button>
+            </form>
+        </section>
+
+        <section id="recipe-output" class="hidden">
+            <h2>Recipe Suggestion</h2>
+            <div id="recipes"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 AI Recipe Suggester</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
