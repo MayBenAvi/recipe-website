@@ -1,56 +1,62 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f9f4ef;
-    color: #333;
+    background-color: #f5f5dc;
     margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: #f5d7c6;
-    padding: 1rem;
+    background-color: #d2b48c;
+    padding: 1em;
     text-align: center;
+    color: #fff;
+}
+
+h1 {
+    margin: 0;
 }
 
 main {
-    padding: 1rem;
+    padding: 2em;
 }
 
 form {
-    background-color: #fff;
-    padding: 1rem;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2em;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold;
 }
 
 input, select, button {
-    display: block;
-    margin: 1rem 0;
-    padding: 0.5rem;
+    margin-bottom: 1em;
+    padding: 0.5em;
     width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    max-width: 300px;
 }
 
 button {
-    background-color: #f28a63;
-    color: white;
-    font-size: 1rem;
+    background-color: #8b4513;
+    color: #fff;
     border: none;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #c96d4e;
+    background-color: #a0522d;
 }
 
 .hidden {
     display: none;
 }
 
-#recipes {
-    background-color: #fff;
-    padding: 1rem;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+footer {
+    text-align: center;
+    padding: 1em;
+    background-color: #d2b48c;
+    color: #fff;
+    margin-top: 2em;
 }
+
