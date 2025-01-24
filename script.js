@@ -1,23 +1,37 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const generateBtn = document.getElementById('generateBtn');
-    const outputElement = document.getElementById('output');
-    
-    // Check if the generate button exists
-    if (!generateBtn) {
-        console.error('generateBtn element not found');
+    const form = document.getElementById('recipe-form');
+    const recipeOutput = document.getElementById('recipe-output');
+    const recipesDiv = document.getElementById('recipes');
+
+    // Check if the form exists
+    if (!form) {
+        console.error('Form element not found');
         return;
     }
 
-    generateBtn.addEventListener('click', async () => {
-        const userPrompt = prompt('Enter a prompt for OpenAI:');
-        if (!userPrompt) return; // Don't proceed if no prompt is entered
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault(); // Prevent the default form submission
 
-        // Send the prompt to the backend server (which will interact with OpenAI API)
+        const allergies = document.getElementById('allergies').value;
+        const mood = document.getElementById('mood').value;
+        const leftovers = document.getElementById('leftovers').value;
+
+        // Check if the required fields are filled
+        if (!allergies || !mood || !leftovers) {
+            alert('Please fill out all fields.');
+            return;
+        }
+
+        // Send the form data to the backend server (which will interact with OpenAI API)
         try {
             const response = await fetch('/api/generate', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ prompt: userPrompt }),
+                body: JSON.stringify({
+                    allergies,
+                    mood,
+                    leftovers
+                }),
             });
 
             if (!response.ok) {
@@ -25,10 +39,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const data = await response.json();
-            outputElement.innerText = data.result || 'No response from OpenAI.';
+            recipesDiv.innerHTML = data.result || 'No response from OpenAI.';
+            recipeOutput.classList.remove('hidden');
         } catch (error) {
             console.error('Error:', error);
-            outputElement.innerText = 'An error occurred while contacting the server.';
+            recipesDiv.innerHTML = 'An error occurred while contacting the server.';
+            recipeOutput.classList.remove('hidden');
         }
     });
 });
