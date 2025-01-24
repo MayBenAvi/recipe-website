@@ -13,7 +13,7 @@ document.getElementById('recipe-form').addEventListener('submit', async (event) 
 
     try {
         // Replace with your actual API URL
-        const apiURL = 'https://api.example.com/recipes';
+        const apiURL = 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;
 
         const response = await fetch(apiURL, {
             method: 'POST',
